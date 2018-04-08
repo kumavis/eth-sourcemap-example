@@ -4,10 +4,11 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "eth-tx-summary": "^3.2.0",
+    "eth-tx-summary": "^3.2.1",
     "ethereumjs-util": "^5.1.5",
     "ethjs": "^0.3.6",
     "pify": "^3.0.0",
+    "remix-lib": "^0.2.0-alpha.3",
     "solc": "^0.4.21",
     "truffle-code-utils": "^1.1.0",
     "truffle-solidity-utils": "^1.1.1"
