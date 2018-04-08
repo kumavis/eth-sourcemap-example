@@ -70,6 +70,9 @@ async function start() {
   const sourceMap = target.contract.evm.deployedBytecode.sourceMap
   const humanReadableSourceMap = SolidityUtils.getHumanReadableSourceMap(sourceMap)
   const sourceMapInstruction = humanReadableSourceMap[revertInstructionIndex]
+  sourceMapInstruction
+  // sourceMapInstruction.file is the index of the file
+  // TODO use this to select the correct file
   const lineAndColumnMapping = SolidityUtils.getCharacterOffsetToLineAndColumnMapping(target.source)
   const range = {
     start: lineAndColumnMapping[sourceMapInstruction.start],
@@ -85,6 +88,19 @@ async function start() {
   console.log('```')
   console.log(matchingSource)
   console.log('```')
+
+  // for more detailed inspection (downloaded from @gnidan's brain):
+  // - track all variable declarations to later track memory/stack locations:
+  //  https://github.com/trufflesuite/truffle-debugger/blob/develop/lib/data/sagas/index.js
+  // - decoding memory to variable types:
+  // https://github.com/trufflesuite/truffle-debugger/blob/develop/lib/data/decode/index.js
+  // - search ast for matching instruction, to get sub-expressions:
+  // https://github.com/trufflesuite/truffle-debugger/blob/develop/lib/ast/map.js
+
+  // can use truffle-debugger as a library
+  // http://truffleframework.com/truffle-debugger/
+  // https://github.com/trufflesuite/truffle-debugger/blob/develop/lib/debugger.js#L45
+  // https://github.com/trufflesuite/truffle-debugger/blob/develop/lib/debugger.js#L118
 
 
   // revertStep.
