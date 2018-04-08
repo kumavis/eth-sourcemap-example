@@ -1,0 +1,21 @@
+{
+  "name": "eth-sourcemap-example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "eth-tx-summary": "^3.2.0",
+    "ethereumjs-util": "^5.1.5",
+    "ethjs": "^0.3.6",
+    "pify": "^3.0.0",
+    "solc": "^0.4.21",
+    "truffle-code-utils": "^1.1.0",
+    "truffle-solidity-utils": "^1.1.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
